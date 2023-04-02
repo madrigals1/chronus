@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  leetcode_bot_backend:
+    build:
+      context: .
+      dockerfile: ./deployment/Dockerfile
+    restart: always
+    image: leetcode-bot-backend
+    container_name: leetcode-bot-backend
+    command: python3.8 manage.py runserver --noreload 0.0.0.0:8000
+    volumes:
+      - ".:/code"
+    ports:
+      - "${PORT}:8000"
+    environment:
+      DEBUG: ${DEBUG}
+    networks:
+      - https
+      - database
+
+networks:
+  https:
+    name: ${HTTPS_NETWORK}
+    external: true
+      
+  database:
+    name: ${DATABASE_NETWORK}
+    external: true

@@ -8,10 +8,10 @@ from member.serializers import MemberSerializer, TaskSerializer
 class MemberViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     serializer_class = MemberSerializer
-    serializer_classes = {
-        "default": MemberSerializer,
-        "read_only": MemberReadOnlySerializer,
-    }
+    # serializer_classes = {
+    #     "default": MemberSerializer,
+    #     "read_only": MemberReadOnlySerializer,
+    # }
 
     def get_queryset(self):
         """

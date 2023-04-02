@@ -53,7 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework.authtoken',
     'rest_framework',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'corsheaders',
     'company',
     'member',
